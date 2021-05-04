@@ -12,11 +12,11 @@ namespace Nouran
         {
             var builder = CreateHostBuilder(args).Build();
 
-            using var scope = builder.Services.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<NouranDbContext>();
-            context.Add(new Country("USA"));
-            context.Add(new Country("France"));
-            context.SaveChanges();
+            //using var scope = builder.Services.CreateScope();
+            // var context = scope.ServiceProvider.GetRequiredService<NouranDbContext>();
+            // context.Add(new Country("USA"));
+            // context.Add(new Country("France"));
+            // context.SaveChanges();
 
             builder.Run();
         }

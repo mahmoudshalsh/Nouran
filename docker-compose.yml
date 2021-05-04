@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  api:
+    container_name: api
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+        - db
+    #entrypoint: ["dotnet","tool","install","--global","dotnet-ef"]
+    #entrypoint: ["dotnet","ef","database","update","--connection","Server=localhost;Database=NouranDB;User Id=SA;Password=P@ssw0rd;'"]
+    #command: bash -c "dotnet tool install --global dotnet-ef && dotnet ef database update --connection 'Server=localhost;Database=NouranDB;User Id=SA;Password=P@ssw0rd;'"
+    #command: bash -c "dotnet tool install --global dotnet-ef"
+    #command: bash -c "dotnet ef database update --connection 'Server=localhost;Database=NouranDB;User Id=SA;Password=P@ssw0rd;'"
+  db:
+    container_name: db
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports:
+        - "1433:1433"
+    environment:
+        SA_PASSWORD: "P@ssw0rd"
+        ACCEPT_EULA: "Y"
+    # command: bash -c "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'P@ssw0rd'"
+    # command: bash -c ""
+    

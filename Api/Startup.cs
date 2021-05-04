@@ -38,7 +38,7 @@ namespace Nouran
             });
             services.AddMediatR(GetType().Assembly);
             services.AddAutoMapper(GetType().Assembly);
-            services.AddDbContext<NouranDbContext>(options => options.UseInMemoryDatabase("NouranDB"));
+            services.AddDbContext<NouranDbContext>(options => options.UseSqlServer("NouranDB"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
